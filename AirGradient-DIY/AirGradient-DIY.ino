@@ -95,12 +95,12 @@ void loop() {
 
 String GenerateMetrics() {
   String message = "";
-  String idString = "{id=\"" + String(deviceId) + "\",mac=\"" + WiFi.macAddress().c_str() + "\"}";
+  String idString = "{id=\"" + String(deviceId) + "\",mac=\"" + WiFi.macAddress().c_str() + "\"} ";
 
   if (hasPM) {
     int stat = ag.getPM2_Raw();
 
-    message += "# HELP pm02 Particulat Matter PM2.5 value\n";
+    message += "# HELP pm02 Particulate Matter PM2.5 value\n";
     message += "# TYPE pm02 gauge\n";
     message += "pm02";
     message += idString;
@@ -129,7 +129,7 @@ String GenerateMetrics() {
     message += String(stat.t);
     message += "\n";
 
-    message += "# HELP rhum Relative humidtily, in percent\n";
+    message += "# HELP rhum Relative humidity, in percent\n";
     message += "# TYPE rhum gauge\n";
     message += "rhum";
     message += idString;
